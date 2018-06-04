@@ -8,12 +8,11 @@ import java.io.IOException;
 @WebServlet(name="LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/login").forward(request,response);
+        request.getRequestDispatcher("/login.jsp").forward(request,response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/profile").forward(request, response);
-        if (request.getMethod().equalsIgnoreCase("post")) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (request.getMethod().equalsIgnoreCase("POST")) {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             if (username.equals("admin") && password.equals("password")) {
@@ -21,7 +20,4 @@ public class LoginServlet extends HttpServlet {
             }
         }
     }
-
-
-
 }
