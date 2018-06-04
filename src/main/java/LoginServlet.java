@@ -11,6 +11,17 @@ public class LoginServlet extends HttpServlet {
         request.getRequestDispatcher("/login").forward(request,response);
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/profile").forward(request, response);
+        if (request.getMethod().equalsIgnoreCase("post")) {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            if (username.equals("admin") && password.equals("password")) {
+                response.sendRedirect("/profile");
+            }
+        }
+    }
+
 
 
 }
