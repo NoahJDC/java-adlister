@@ -21,3 +21,9 @@ CREATE TABLE ads (
   FOREIGN KEY (user_id)REFERENCES users(id)
 
 );
+
+INSERT INTO ads (user_id, title, description) VALUES ();
+
+SELECT * FROM users;
+
+SELECT * FROM ads;
