@@ -20,7 +20,6 @@ public class MySQLAdsDao implements Ads {
 
     }
 
-
     @Override
     public List<Ad> all() {
         String query = "SELECT * FROM ads";
@@ -44,7 +43,10 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public Long insert(Ad ad) {
-        String query = "INSERT INTO ads(user_id, title, description) VALUES (ad.getUserid(), ad.getTitle(), ad.getDescription())";
+        String query = "INSERT INTO ads(user_id, title, description) VALUES "
+                + "(" + ad.getUserId() + ", "
+                + "'" + ad.getTitle() +"', "
+                + "'" + ad.getDescription() + "')";
         try {
             System.out.println(query);
             Statement stmt = connection.createStatement();
