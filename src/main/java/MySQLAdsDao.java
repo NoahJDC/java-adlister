@@ -36,7 +36,7 @@ public class MySQLAdsDao implements Ads {
                 ads.add(ad);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error retrieving all ads from the database", e);
         }
         return ads;
     }
@@ -55,9 +55,11 @@ public class MySQLAdsDao implements Ads {
                 return resultSet.getLong(1);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error inserting a new ad", e);
         }
         return null;
     }
+
+
 
 }
